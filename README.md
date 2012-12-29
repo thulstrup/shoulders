@@ -1,9 +1,16 @@
-## Templates
+## Requirements
 
-Templates should be used when first starting a project. Using them is very easy:
+Shoulders is a Compass extension, so make sure you have [Sass and Compass Installed](http://compass-style.org/install/) in order to use it.
 
-**Default Shoulders**
+## Installation
 
-```bash
-compass create <my_project> -r shoulders --using shoulders --force
-```
+`gem install shoulders`
+
+#### If creating a new project
+`compass create <my_project> -r shoulders --using shoulders --force`
+
+#### If adding to existing project, in config.rb
+`require "shoulders"`
+
+#### Import the toolkit partial at the top of your working file
+`@import "shoulders";`
