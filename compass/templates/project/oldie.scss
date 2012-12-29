@@ -1,0 +1,11 @@
+/**
+ * IE File
+ *
+ * This file gets turned into ie.css.
+ * This file should hold nothing except for imports of your base, layout, and design partials.
+ * This file is styles specific to IE 8 and below.
+ */
+
+@import "partials/base/all";
+@import "partials/layout/all";
+@import "partials/module/all";

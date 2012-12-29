@@ -1,0 +1,48 @@
+/**
+ * Enhance From.
+ * Modernizr feature (base CSS class name)
+ */
+@mixin enhance-with($feature) {
+  .#{$feature} & {
+    @content;
+  }
+}
+
+/**
+ * Degrade From.
+ * Modernizr feature (base CSS class name)
+ */
+@mixin degrade-from($feature, $no-js: true) {
+  @if $feature == 'js' or not $no-js {
+    .no-#{$feature} & {
+      @content;
+    }
+  }
+  @else {
+    .no-#{$feature} &,
+    .no-js & {
+      @content;
+    }
+  }
+}
+
+/**
+ * Completely remove from the flow and screen readers.
+ */
+@mixin hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/**
+ * Completely remove from the flow but leave available to screen readers.
+ */
+@mixin visible-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}

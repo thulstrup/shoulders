@@ -1,0 +1,66 @@
+/**
+ * Convert pixel units to em.
+ *
+ * Example: margin-right: pem(16);
+ */
+@function pem($target-px, $context: $base-font-size) {
+  @return ($target-px / $context) * 1em;
+}
+
+/**
+ * Mixin that converts pixel values to em values for whatever property is passed to it.
+ *
+ * Example: @include pem("padding", 10px 0 2px 5px);
+ */
+@mixin pem($property, $px-values, $context: $base-font-size) {
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: pem($px-values, $context);
+  }
+  @else {
+    // Create an empty list that we can dump values into
+    $pem-values: unquote("");
+    @each $value in $px-values {
+      // If the value is zero, return 0
+      @if $value == 0 {
+        $pem-values: append($pem-values, $value);
+      }
+      @else {
+        $pem-values: append($pem-values, pem($value, $context));
+      }
+    }
+    // Return the property and its list of converted values
+    #{$property}: $pem-values;
+  }
+}
+
+/**
+ * Mixin that converts pixel values to rem values for whatever property is passed to it.
+ *
+ * Example: @include rem("padding", 10px 0 2px 5px);
+ */
+@mixin rem($property, $px-values) {
+  // Convert the baseline into rems
+  $baseline-rem: $base-font-size / 1rem;
+  // Print the first line in pixel values
+  #{$property}: $px-values;
+  // If there is only one (numeric) value, return the property/value line for it.
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-rem;
+  }
+  @else {
+    // Create an empty list that we can dump values into
+    $rem-values: unquote("");
+    @each $value in $px-values {
+      // If the value is zero, return 0
+      @if $value == 0 {
+        $rem-values: append($rem-values, $value);
+      }
+      @else {
+        $rem-values: append($rem-values, $value / $baseline-rem);
+      }
+    }
+    // Return the property and its list of converted values
+    #{$property}: $rem-values;
+  }
+}
