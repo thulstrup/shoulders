@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/thulstrup/shoulders"
 
   # Project Description
-  s.description = "CSS starter toolkit"
-  s.summary = "CSS starter toolkit"
+  s.description = "A Compass plugin for progressive Enhancement and responsive web design"
+  s.summary = "A Compass plugin"
 
   # Files to Include
   s.files  = Dir.glob("lib/**/*.*")

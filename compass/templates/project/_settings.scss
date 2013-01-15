@@ -1,14 +1,27 @@
 /**
- * Base Partials
+ * Settings partial
  */
 
-@import 'shoulders';
+// Set this to true to add support for IE 6.
+$legacy-support-for-ie6: false;
+
+// Set this to true to add support for IE 7.
+$legacy-support-for-ie7: false;
+
+// Set this to true to add support for IE 8.
+$legacy-support-for-ie8: false;
+
+// Set this to true to add support Firefox 3.6 or earlier.
+$legacy-support-for-mozilla: false;
+
+// Set this to true to add support for original gradient syntax. Needed for some versions of Android.
+$support-for-original-webkit-gradients: false;
 
 // The base font size.
-$base-font-size: 16px !default; // Override default set in Compass' Vertical Rhythm partial.
+$base-font-size: 16px !default;
 
 // The base line height determines the basic unit of vertical rhythm.
-$base-line-height: 24px; // Override default set in Compass' Vertical Rhythm partial.
+$base-line-height: 24px !default;
 
 // The font sizes for h1-h6.
 $h1-font-size: 2    * $base-font-size !default;
@@ -18,12 +31,6 @@ $h4-font-size: 1    * $base-font-size !default;
 $h5-font-size: 0.83 * $base-font-size !default;
 $h6-font-size: 0.67 * $base-font-size !default;
 
-// Set this to true to add support for IE 6.
-// $legacy-support-for-ie6: true; // Override default set in Compass' Support partial.
-
-// Set this to true to add support for IE 7.
-// $legacy-support-for-ie7: true; // Override default set in Compass' Support partial.
-
 // The default font family.
 $base-font-family: sans-serif !default;
 
@@ -31,6 +38,7 @@ $base-font-family: sans-serif !default;
 $indent-amount: 40px !default;
 
 // After the default variables are set, import the required Compass partials.
+@import "shoulders";
 @import "compass/support";
 @import "compass/css3/box-sizing";
 @import "compass/typography/vertical_rhythm";
