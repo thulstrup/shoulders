@@ -22,7 +22,7 @@ file 'oldie.scss',        :like => :stylesheet, :media => 'screen, projection', 
 
 # JavaScript
 file 'modernizr.custom.js',   :like => :javascript, :to => 'libs/modernizr.custom.js'
-file 'jquery-1.8.3.min.js',   :like => :javascript, :to => 'libs/jquery-1.8.3.min.js'
+file 'jquery-1.9.0.min.js',   :like => :javascript, :to => 'libs/jquery-1.9.0.min.js'
 file 'scripts.js',            :like => :javascript, :to => 'scripts.js'
 
 # HTML
